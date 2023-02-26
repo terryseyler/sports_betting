@@ -1,0 +1,4 @@
+__pycache__/
+baseball/__pycache__/
+*.pyc
+*.DS_STORE
