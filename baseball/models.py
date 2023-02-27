@@ -10,13 +10,13 @@ class Stadiums(models.Model):
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
     city_id = models.IntegerField(default = 0)
-    stadium_name =  models.CharField(max_length=200,primary_key=True)
+    stadium_name =  models.CharField(max_length=200)
     home_team = models.CharField(max_length=200)
     def __str__(self):
         return self.stadium_name
 
 class Forecast(models.Model):
-    city_id = models.CharField(max_length=200)
+    city_id = models.IntegerField(default = 0)
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)    
     dt = models.IntegerField(default = 0)
