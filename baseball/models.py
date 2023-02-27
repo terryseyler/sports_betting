@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+#the data model --pull games, identify home team to find stadium. use game ID to match odds from multiple bookmakers. 
+#use statdium lat/long to find forecast. 
 
 class Stadiums(models.Model):
     city_name = models.CharField(max_length=200)
@@ -48,7 +50,7 @@ class GameSchedule(models.Model):
     home_team = models.CharField(max_length=200)
     away_team = models.CharField(max_length=200)
     start_date = models.CharField(max_length=200)
-    stadium_name=models.ForeignKey(Stadiums,on_delete=models.CASCADE)
+    #stadium_name=models.ForeignKey(Stadiums,on_delete=models.CASCADE)
 
 class Odds(models.Model):
     game_id = models.ForeignKey(GameSchedule,on_delete=models.CASCADE)
