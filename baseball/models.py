@@ -11,11 +11,12 @@ class Stadiums(models.Model):
     longitude = models.FloatField(default=0)
     city_id = models.IntegerField(default = 0)
     stadium_name =  models.CharField(max_length=200)
-    home_team = models.CharField(max_length=200)
+    home_team = models.CharField(max_length=200,primary_key=True)
     def __str__(self):
         return self.stadium_name
 
 class Forecast(models.Model):
+    home_team = models.ForeignKey(Stadiums,on_delete=models.CASCADE)
     city_id = models.IntegerField(default = 0)
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)    
@@ -47,7 +48,7 @@ class GameSchedule(models.Model):
     game_id = models.CharField(max_length=200,primary_key=True)
     sport_key = models.CharField(max_length=200)
     sport_title = models.CharField(max_length=200)
-    home_team = models.CharField(max_length=200)
+    home_team = models.ForeignKey(Stadiums,on_delete=models.CASCADE)
     away_team = models.CharField(max_length=200)
     start_date = models.CharField(max_length=200)
     #stadium_name=models.ForeignKey(Stadiums,on_delete=models.CASCADE)

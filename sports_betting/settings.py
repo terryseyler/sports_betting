@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_extensions',
     'baseball.apps.BaseballConfig',
     'django.contrib.admin',
     'django.contrib.auth',
