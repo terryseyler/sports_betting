@@ -8,5 +8,12 @@ from django.views import generic
 from django.utils import timezone
 from .models import Stadiums, Forecast, Odds, GameSchedule
 
-class ListView(generic.ListView):
+class IndexView(generic.ListView):
+    template_name = 'baseball/index.html'
+    context_object_name = 'game_schedule_list'
+
+    def get_queryset(self):
+
+    
+        return GameSchedule.objects.all()
     
