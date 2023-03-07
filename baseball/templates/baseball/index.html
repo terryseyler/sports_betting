@@ -1,8 +1,18 @@
-]
-{% if game_schedule_list %}
+{% if stadium_list %}
     <ul>
-    {% for game in game_schedule_list %}
-    <li>{{ game.home_team }}</li>
+    {% for stadium in stadium_list %}
+    <li>{{ stadium.home_team }}</li>
+        {% for game in stadium.gameschedule_set.all %}
+            <li>{{game.start_date}}</li>
+        {% for odd in game.odds_set.all %}
+            <li>{{odd.over_price}}</li>
+            {% endfor %}
+            {% endfor %}
+        {% for forecast in stadium.forecast_set.all %}
+            <li>{{forecast.wind_speed}}</li>
+        
+        
+        {% endfor %}
     {% endfor %}
     </ul>
 {% else %}

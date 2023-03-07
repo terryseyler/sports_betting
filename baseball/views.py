@@ -10,10 +10,10 @@ from .models import Stadiums, Forecast, Odds, GameSchedule
 
 class IndexView(generic.ListView):
     template_name = 'baseball/index.html'
-    context_object_name = 'game_schedule_list'
+    context_object_name = 'stadium_list'
 
     def get_queryset(self):
 
     
-        return GameSchedule.objects.all()
+        return Stadiums.objects.all()
     

@@ -13,7 +13,7 @@ class Stadiums(models.Model):
     stadium_name =  models.CharField(max_length=200)
     home_team = models.CharField(max_length=200,primary_key=True)
     def __str__(self):
-        return self.stadium_name
+        return self.home_team
 
 class Forecast(models.Model):
     home_team = models.ForeignKey(Stadiums,on_delete=models.CASCADE)
