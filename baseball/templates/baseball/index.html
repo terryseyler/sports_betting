@@ -1,1 +1,10 @@
-hello
+]
+{% if game_schedule_list %}
+    <ul>
+    {% for game in game_schedule_list %}
+    <li>{{ game.home_team }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>no games</p>
+{% endif %}
